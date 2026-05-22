@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAGLE SWAP LLC | USDT (BSC) Secure Checkout</title>
+    <link rel="shortcut icon" href="/payment/assets/img/tether.svg">
+    <link rel="stylesheet" href="/payment/assets/css/core.min.css">
+    <script src="/payment/assets/js/jquery.min.js"></script>
+    <script src="/payment/assets/js/jquery.qrcode_1.0.min.js"></script>
+    <script src="/payment/assets/i18n/i18next.min.js"></script>
+    <script src="/payment/assets/js/core.min.js"></script>
+</head>
+
+<body>
+    <div class="payment-container" data-token="USDT" data-network="BEP20" data-network-name="Binance Smart Chain (BSC)" data-warning-token="BNB">
+        <div class="language-switcher">
+            <select id="languageSwitcher" onchange="changeLanguage(this.value)">
+                <option value="zh">Chinese</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+
+        <div class="crypto-icon">USDT</div>
+        <h1 class="payment-title" data-i18n="payment.title">USDT Payment</h1>
+        <p class="payment-subtitle">
+            <span class="status-indicator"></span>
+            <span data-i18n="payment.subtitle">Please complete this transfer on the <strong>Binance Smart Chain (BSC)</strong> BEP20 network</span>
+            <span class="network-badge" data-i18n="payment.networkBadge">BEP20</span>
+        </p>
+
+        <div class="order-info">
+            <div class="order-item">
+                <span class="order-label" data-i18n="payment.paymentAmount">Payment Amount:</span>
+                <span class="order-value amount-value" id="payAmount" onclick="copyAmount()" data-i18n="[title]payment.clickToCopy" title="Click to copy amount">{{.amount}} USDT</span>
+            </div>
+            <div class="order-item">
+                <span class="order-label" data-i18n="payment.merchantOrder">Merchant Order:</span>
+                <span class="order-value">{{.order_id}}</span>
+            </div>
+            <div class="order-item">
+                <span class="order-label" data-i18n="payment.orderAmount">Order Amount:</span>
+                <span class="order-value">
+                    <span class="fiat-amount"><span data-i18n="payment.amountPrefix">Approx.</span> {{.money}} {{.fiat}}</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="countdown-banner">
+            <div class="countdown-content">
+                <div class="countdown-info">
+                    <div class="countdown-title" data-i18n="payment.countdownTitle">Payment Countdown</div>
+                    <div class="countdown-subtitle" data-i18n="payment.countdownSubtitle">Complete the transfer before the timer ends or place a new order.</div>
+                </div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="time-unit">
+                        <span class="time-number" id="minutes">15</span>
+                        <span class="time-label" data-i18n="payment.minutes">Min</span>
+                    </div>
+                    <span class="time-separator">:</span>
+                    <div class="time-unit">
+                        <span class="time-number" id="seconds">00</span>
+                        <span class="time-label" data-i18n="payment.seconds">Sec</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="qr-section">
+            <div class="qr-code" id="qrcode"></div>
+            <div class="address-section">
+                <div class="address-label" data-i18n="payment.addressLabel">Receiving Address (BEP20)</div>
+                <div class="address-text" id="walletAddress">{{.address}}</div>
+                <button class="copy-btn" onclick="copyAddress()" data-i18n="payment.copyAddress">Copy Address</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h4 data-i18n="payment.instructionsTitle">Transfer Instructions</h4>
+            <ol>
+                <li data-i18n="[html]payment.instruction1">Use the <strong>BEP20 network</strong> only. Do not send BNB or assets from another chain.</li>
+                <li data-i18n="payment.instruction2">Your order will be confirmed automatically after the transfer is detected.</li>
+                <li data-i18n="payment.instruction3">Send the exact amount shown on this page to avoid settlement delays.</li>
+                <li data-i18n="payment.instruction4">Contact support if you need help with this payment.</li>
+            </ol>
+        </div>
+
+        <div class="footer-info">
+            <div class="project-info">
+                <span class="powered-by">Processed by</span>
+                <span class="project-link"><strong>EAGLE SWAP LLC</strong></span>
+                <span class="open-source">Secure Payment Gateway</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Payment.init({
+                expire: "{{.expire}}",
+                address: "{{.address}}",
+                amount: "{{.amount}}",
+                trade_id: "{{.trade_id}}",
+                return_url: "{{.return_url}}"
+            });
+        });
+    </script>
+</body>
+
+</html>
