@@ -30,7 +30,7 @@ var supportCrypto = map[Crypto]CoinId{
 // registry stores trade type definitions
 var registry = map[TradeType]TradeTypeConf{
 	UsdtPlasma: {
-		Alias:       "USDT銉籔lasma",
+		Alias:       "USDT Plasma",
 		NetworkName: "Plasma",
 		Network:     conf.Plasma,
 		Crypto:      USDT,
@@ -41,7 +41,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointPlasma,
 	},
 	UsdtTrc20: {
-		Alias:        "USDT銉籘RC20",
+		Alias:        "USDT TRC20",
 		NetworkName:  "TRC20",
 		Network:      conf.Tron,
 		Crypto:       USDT,
@@ -53,7 +53,7 @@ var registry = map[TradeType]TradeTypeConf{
 		AddrCaseSens: true,
 	},
 	UsdtErc20: {
-		Alias:       "USDT銉籈RC20",
+		Alias:       "USDT ERC20",
 		NetworkName: "ERC20",
 		Network:     conf.Ethereum,
 		Crypto:      USDT,
@@ -64,7 +64,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointEthereum,
 	},
 	UsdtBep20: {
-		Alias:       "USDT銉籅EP20",
+		Alias:       "USDT BEP20",
 		NetworkName: "BEP20",
 		Network:     conf.Bsc,
 		Crypto:      USDT,
@@ -75,7 +75,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointBsc,
 	},
 	UsdtAptos: {
-		Alias:       "USDT銉籄ptos",
+		Alias:       "USDT Aptos",
 		NetworkName: "Aptos",
 		Network:     conf.Aptos,
 		Crypto:      USDT,
@@ -86,7 +86,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointAptos,
 	},
 	UsdtXlayer: {
-		Alias:       "USDT銉籜 Layer",
+		Alias:       "USDT X Layer",
 		NetworkName: "X Layer",
 		Network:     conf.Xlayer,
 		Crypto:      USDT,
@@ -97,7 +97,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointXlayer,
 	},
 	UsdtSolana: {
-		Alias:        "USDT銉籗olana",
+		Alias:        "USDT Solana",
 		NetworkName:  "Solana",
 		Network:      conf.Solana,
 		Crypto:       USDT,
@@ -109,7 +109,7 @@ var registry = map[TradeType]TradeTypeConf{
 		AddrCaseSens: true,
 	},
 	UsdtPolygon: {
-		Alias:       "USDT銉籔olygon",
+		Alias:       "USDT Polygon",
 		NetworkName: "Polygon",
 		Network:     conf.Polygon,
 		Crypto:      USDT,
@@ -120,7 +120,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointPolygon,
 	},
 	UsdtArbitrum: {
-		Alias:       "USDT銉籄rbitrum",
+		Alias:       "USDT Arbitrum",
 		NetworkName: "Arbitrum",
 		Network:     conf.Arbitrum,
 		Crypto:      USDT,
@@ -131,7 +131,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointArbitrum,
 	},
 	UsdcErc20: {
-		Alias:       "USDC銉籈RC20",
+		Alias:       "USDC ERC20",
 		NetworkName: "ERC20",
 		Network:     conf.Ethereum,
 		Crypto:      USDC,
@@ -142,7 +142,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointEthereum,
 	},
 	UsdcBep20: {
-		Alias:       "USDC銉籅EP20",
+		Alias:       "USDC BEP20",
 		NetworkName: "BEP20",
 		Network:     conf.Bsc,
 		Crypto:      USDC,
@@ -153,7 +153,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointBsc,
 	},
 	EfunBep20: {
-		Alias:       "EFUN銉籅EP20",
+		Alias:       "EFUN BEP20",
 		NetworkName: "BEP20",
 		Network:     conf.Bsc,
 		Crypto:      EFUN,
@@ -164,7 +164,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointBsc,
 	},
 	UsdcXlayer: {
-		Alias:       "USDC銉籜 Layer",
+		Alias:       "USDC X Layer",
 		NetworkName: "X Layer",
 		Network:     conf.Xlayer,
 		Crypto:      USDC,
@@ -175,7 +175,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointXlayer,
 	},
 	UsdcPolygon: {
-		Alias:       "USDC銉籔olygon",
+		Alias:       "USDC Polygon",
 		NetworkName: "Polygon",
 		Network:     conf.Polygon,
 		Crypto:      USDC,
@@ -186,7 +186,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointPolygon,
 	},
 	UsdcArbitrum: {
-		Alias:       "USDC銉籄rbitrum",
+		Alias:       "USDC Arbitrum",
 		NetworkName: "Arbitrum",
 		Network:     conf.Arbitrum,
 		Crypto:      USDC,
@@ -197,7 +197,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointArbitrum,
 	},
 	UsdcBase: {
-		Alias:       "USDC銉籅ase",
+		Alias:       "USDC Base",
 		NetworkName: "Base",
 		Network:     conf.Base,
 		Crypto:      USDC,
@@ -208,7 +208,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointBase,
 	},
 	UsdcTrc20: {
-		Alias:        "USDC銉籘RC20",
+		Alias:        "USDC TRC20",
 		NetworkName:  "TRC20",
 		Network:      conf.Tron,
 		Crypto:       USDC,
@@ -220,7 +220,7 @@ var registry = map[TradeType]TradeTypeConf{
 		AddrCaseSens: true,
 	},
 	UsdcSolana: {
-		Alias:        "USDC銉籗olana",
+		Alias:        "USDC Solana",
 		NetworkName:  "Solana",
 		Network:      conf.Solana,
 		Crypto:       USDC,
@@ -232,7 +232,7 @@ var registry = map[TradeType]TradeTypeConf{
 		AddrCaseSens: true,
 	},
 	UsdcAptos: {
-		Alias:       "USDC銉籄ptos",
+		Alias:       "USDC Aptos",
 		NetworkName: "Aptos",
 		Network:     conf.Aptos,
 		Crypto:      USDC,
@@ -243,7 +243,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointAptos,
 	},
 	TronTrx: {
-		Alias:       "Tron銉籘rx",
+		Alias:       "TRON TRX",
 		NetworkName: "Tron",
 		Network:     conf.Tron,
 		Crypto:      TRX,
@@ -258,7 +258,7 @@ var registry = map[TradeType]TradeTypeConf{
 		AddrCaseSens: true,
 	},
 	EthereumEth: {
-		Alias:       "Ethereum銉籈th",
+		Alias:       "Ethereum ETH",
 		NetworkName: "Ethereum",
 		Network:     conf.Ethereum,
 		Crypto:      ETH,
@@ -272,7 +272,7 @@ var registry = map[TradeType]TradeTypeConf{
 		EndpointKey: RpcEndpointEthereum,
 	},
 	BscBnb: {
-		Alias:       "Bsc銉籅nb",
+		Alias:       "BSC BNB",
 		NetworkName: "Bsc",
 		Network:     conf.Bsc,
 		Crypto:      BNB,
