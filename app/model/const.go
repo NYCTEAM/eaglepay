@@ -28,12 +28,14 @@ type TradeTypeConf struct {
 }
 
 const (
-	AdminUsername ConfKey = "admin_username"
-	AdminPassword ConfKey = "admin_password"
-	AdminSecure   ConfKey = "admin_secure"
-	AdminSecret   ConfKey = "admin_secret"
-	AdminLoginIP  ConfKey = "admin_login_ip"
-	AdminLoginAt  ConfKey = "admin_login_at"
+	AdminUsername     ConfKey = "admin_username"
+	AdminPassword     ConfKey = "admin_password"
+	AdminSecure       ConfKey = "admin_secure"
+	AdminSecret       ConfKey = "admin_secret"
+	AdminLoginIP      ConfKey = "admin_login_ip"
+	AdminLoginAt      ConfKey = "admin_login_at"
+	AdminAuthToken    ConfKey = "admin_auth_token"
+	AdminAuthExpireAt ConfKey = "admin_auth_expire_at"
 
 	ApiAuthToken ConfKey = "api_auth_token"
 	ApiAppUri    ConfKey = "api_app_uri"

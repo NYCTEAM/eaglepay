@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"strconv"
 	"strings"
 	"time"
 
@@ -327,14 +328,14 @@ func (Auth) Login(ctx *gin.Context) {
 
 	var username = model.GetK(model.AdminUsername)
 	if req.Username != username {
-		base.Response(ctx, 400, "用户名或密码错误")
+		base.Response(ctx, 400, "username or password is incorrect")
 
 		return
 	}
 
 	var password = model.GetK(model.AdminPassword)
 	if bcrypt.CompareHashAndPassword([]byte(password), []byte(req.Password)) != nil {
-		base.Response(ctx, 400, "用户名或密码错误")
+		base.Response(ctx, 400, "username or password is incorrect")
 
 		return
 	}
@@ -343,22 +344,27 @@ func (Auth) Login(ctx *gin.Context) {
 
 	var token = utils.StrSha256(rand + ctx.ClientIP())
 
-	cache.Set(conf.AdminTokenK, token, time.Hour*24)
+	var tokenTTL = time.Hour * 24 * 30
+	cache.Set(conf.AdminTokenK, token, tokenTTL)
 
 	model.SetK(model.AdminLoginIP, ctx.ClientIP())
 	model.SetK(model.AdminLoginAt, cast.ToString(time.Now().Format(time.DateTime)))
+	model.SetK(model.AdminAuthToken, token)
+	model.SetK(model.AdminAuthExpireAt, strconv.FormatInt(time.Now().Add(tokenTTL).Unix(), 10))
 
 	base.Response(ctx, 200, gin.H{"token": token, "types": model.GetAllAlias()})
 }
 
 func (Auth) Logout(ctx *gin.Context) {
 	cache.Set(conf.AdminTokenK, "", -1)
+	model.SetK(model.AdminAuthToken, "")
+	model.SetK(model.AdminAuthExpireAt, "")
 
 	sess := sessions.Default(ctx)
 	sess.Delete(conf.AdminSecureK)
 	_ = sess.Save()
 
-	base.Response(ctx, 200, "退出成功")
+	base.Response(ctx, 200, "logout success")
 }
 
 func (Auth) SetPassword(ctx *gin.Context) {
@@ -371,20 +377,20 @@ func (Auth) SetPassword(ctx *gin.Context) {
 
 	var password = model.GetK(model.AdminPassword)
 	if bcrypt.CompareHashAndPassword([]byte(password), []byte(req.Password)) != nil {
-		base.BadRequest(ctx, "原密码错误")
+		base.BadRequest(ctx, "current password is incorrect")
 
 		return
 	}
 
 	if req.ConfirmPassword != req.NewPassword {
-		base.BadRequest(ctx, "两次输入的新密码不一致")
+		base.BadRequest(ctx, "new password confirmation does not match")
 
 		return
 	}
 
 	var newPassword = strings.TrimSpace(req.NewPassword)
 	if len(newPassword) < 6 {
-		base.BadRequest(ctx, "新密码长度不能少于6位")
+		base.BadRequest(ctx, "new password must be at least 6 characters")
 
 		return
 	}
@@ -393,6 +399,8 @@ func (Auth) SetPassword(ctx *gin.Context) {
 
 	model.SetK(model.AdminPassword, string(hash))
 	cache.Set(conf.AdminTokenK, "", -1)
+	model.SetK(model.AdminAuthToken, "")
+	model.SetK(model.AdminAuthExpireAt, "")
 
-	base.Ok(ctx, "修改成功，请重新登录")
+	base.Ok(ctx, "password updated, please login again")
 }

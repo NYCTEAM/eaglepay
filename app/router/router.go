@@ -4,6 +4,7 @@ import (
 	"crypto/subtle"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/memstore"
@@ -25,7 +26,7 @@ func Handler() *gin.Engine {
 	engine = gin.New()
 	session := memstore.NewStore([]byte(model.GetK(model.AdminSecret)))
 	session.Options(sessions.Options{
-		MaxAge:   86400,
+		MaxAge:   86400 * 30,
 		HttpOnly: true,
 		SameSite: http.SameSiteStrictMode,
 		Path:     "/",
@@ -89,9 +90,20 @@ func sessionAuth() gin.HandlerFunc {
 
 		token, ok := cache.Get(conf.AdminTokenK)
 		if !ok {
-			ctx.JSON(403, gin.H{"code": 403, "msg": "token expired, please login again"})
-			ctx.Abort()
-			return
+			persistedToken := model.GetK(model.AdminAuthToken)
+			expireAt := cast.ToInt64(model.GetK(model.AdminAuthExpireAt))
+			if persistedToken == "" || expireAt <= time.Now().Unix() {
+				if persistedToken != "" || expireAt != 0 {
+					model.SetK(model.AdminAuthToken, "")
+					model.SetK(model.AdminAuthExpireAt, "")
+				}
+				ctx.JSON(403, gin.H{"code": 403, "msg": "token expired, please login again"})
+				ctx.Abort()
+				return
+			}
+
+			cache.Set(conf.AdminTokenK, persistedToken, time.Until(time.Unix(expireAt, 0)))
+			token = persistedToken
 		}
 
 		authHeader := ctx.GetHeader("Authorization")
