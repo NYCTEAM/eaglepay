@@ -12,7 +12,7 @@
 const currentYear = ref(new Date().getFullYear());
 
 const openBrandSite = () => {
-  window.open("https://github.com/NYCTEAM/eaglepay", "_blank");
+  window.open("https://x.com/EagleSwapHQ", "_blank");
 };
 </script>
 

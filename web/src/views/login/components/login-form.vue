@@ -132,7 +132,7 @@ const onLogin = async () => {
 
 // 忘记密码
 const handleForgotPassword = () => {
-  window.open("https://github.com/NYCTEAM/eaglepay", "_blank");
+  window.open("https://t.me/EagleSwapLLC", "_blank");
 };
 </script>
 

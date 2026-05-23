@@ -129,7 +129,7 @@ const onNightMode = () => {
 
 // 项目地址
 const onProject = () => {
-  window.open("https://github.com/NYCTEAM/eaglepay", "_blank");
+  window.open("https://x.com/EagleSwapHQ", "_blank");
 };
 
 // 退出登录

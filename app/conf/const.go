@@ -1,7 +1,7 @@
 package conf
 
 const (
-	Desc   = "EAGLE SWAP LLC Payment Gateway"
+	Desc   = "EAGLE PAY Payment Gateway"
 	Github = "https://github.com/NYCTEAM/eaglepay"
 )
 
