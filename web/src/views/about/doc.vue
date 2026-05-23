@@ -4,13 +4,13 @@
       <h2>EAGLE SWAP LLC Documentation</h2>
       <div class="divider"></div>
       <p>
-        Repository:
-        <a href="https://github.com/NYCTEAM/eaglepay" target="_blank" class="link">https://github.com/NYCTEAM/eaglepay</a>
+        X:
+        <a href="https://x.com/EagleSwapHQ" target="_blank" class="link">https://x.com/EagleSwapHQ</a>
       </p>
       <p style="margin-top: 12px">
-        API guide:
-        <a href="https://github.com/NYCTEAM/eaglepay/blob/main/docs/api/api.md" target="_blank" class="link">
-          https://github.com/NYCTEAM/eaglepay/blob/main/docs/api/api.md
+        Telegram:
+        <a href="https://t.me/EagleSwapLLC" target="_blank" class="link">
+          https://t.me/EagleSwapLLC
         </a>
       </p>
     </div>

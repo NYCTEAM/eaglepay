@@ -2,7 +2,7 @@ package conf
 
 const (
 	Desc   = "EAGLE PAY Payment Gateway"
-	Github = "https://github.com/NYCTEAM/eaglepay"
+	Github = "https://x.com/EagleSwapHQ"
 )
 
 const Debug = false
