@@ -3,18 +3,21 @@
     <div class="login">
       <LoginBanner v-if="isPc" />
       <div class="login_box">
-        <div class="login_title">Welcome Back</div>
-        <div class="login_title_desc">一款更好用的个人加密货币收款网关，助力出海需求！</div>
+        <img :src="brandLogo" alt="EAGLE SWAP LLC" class="login_brand_logo" />
+        <div class="login_title">EAGLE SWAP LLC</div>
+        <div class="login_title_desc">Secure crypto payment operations for USDT and EFUN settlement.</div>
         <LoginForm />
-        <!-- <div class="author">by 兔子先森</div> -->
       </div>
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
+import brandLogo from "@/assets/logo/eagle-swap.png";
+import { useDevicesSize } from "@/hooks/useDevicesSize";
 import LoginBanner from "@/views/login/components/login-banner.vue";
 import LoginForm from "@/views/login/components/login-form.vue";
-import { useDevicesSize } from "@/hooks/useDevicesSize";
+
 const { isPc } = useDevicesSize();
 </script>
 
@@ -23,6 +26,7 @@ const { isPc } = useDevicesSize();
   position: relative;
   height: 100vh;
   overflow: hidden;
+
   .login {
     position: absolute;
     top: 50%;
@@ -33,26 +37,34 @@ const { isPc } = useDevicesSize();
     height: 500px;
     box-shadow: 0 0 8px 1px $color-fill-2;
     transform: translate(-50%, -50%);
+
     .login_box {
       position: relative;
       box-sizing: border-box;
       width: 350px;
       height: 100%;
       padding: 40px 30px 30px;
+
+      .login_brand_logo {
+        width: 84px;
+        height: 84px;
+        object-fit: contain;
+        margin-bottom: 18px;
+        filter: drop-shadow(0 12px 24px rgba(18, 99, 221, 0.18));
+      }
+
       .login_title {
         margin-bottom: $margin-text;
         font-size: $font-size-title-2;
+        font-weight: 700;
         color: $color-text-1;
       }
+
       .login_title_desc {
+        margin-bottom: 8px;
+        line-height: 1.6;
         font-size: $font-size-body-1;
         color: $color-text-3;
-      }
-      .author {
-        position: absolute;
-        bottom: 30px;
-        font-size: $font-size-body-1;
-        color: $color-text-4;
       }
     }
   }

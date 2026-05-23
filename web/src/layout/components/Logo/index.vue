@@ -1,13 +1,14 @@
 <template>
   <div :class="layoutType == 'layoutHead' ? 'logo_head no-border' : 'logo_head'">
     <div class="logo_box" :class="(collapsed || layoutType == 'layoutHead') && 'padding-unset'">
-      <s-svg-icon name="snow" :size="30" />
+      <img :src="brandLogo" alt="EAGLE SWAP LLC" class="logo_mark" />
       <span :class="isDark ? 'logo_title dark' : 'logo_title'" v-if="isTitle">{{ title }}</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import brandLogo from "@/assets/logo/eagle-swap.png";
 import { storeToRefs } from "pinia";
 import { useThemeConfig } from "@/store/modules/theme-config";
 const themeStore = useThemeConfig();
@@ -58,9 +59,15 @@ const isTitle = computed(() => {
     justify-content: space-around;
     padding: unset;
   }
+  .logo_mark {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
   .logo_title {
     box-sizing: border-box;
-    max-width: 140px;
+    max-width: 180px;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: $font-size-title-2;

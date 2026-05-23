@@ -34,7 +34,7 @@
     <a-dropdown trigger="hover">
       <div class="my_setting" id="system-my-setting">
         <!-- <a-image width="32" height="32" fit="cover" :src="account.user.avatar || myImage" class="my_image" /> -->
-        <span class="user-nickname">Hi {{ admin_username || "BEpusdt" }}</span>
+        <span class="user-nickname">Hi {{ admin_username || "EAGLE SWAP LLC" }}</span>
         <div class="icon_down">
           <icon-down style="stroke-width: 3" />
         </div>
@@ -129,7 +129,7 @@ const onNightMode = () => {
 
 // 项目地址
 const onProject = () => {
-  window.open("https://github.com/v03413/BEpusdt", "_blank");
+  window.open("https://github.com/NYCTEAM/eaglepay", "_blank");
 };
 
 // 退出登录

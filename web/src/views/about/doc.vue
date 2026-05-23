@@ -1,16 +1,16 @@
 <template>
   <div class="doc-container">
     <div class="card">
-      <h2>项目文档</h2>
+      <h2>EAGLE SWAP LLC Documentation</h2>
       <div class="divider"></div>
       <p>
-        仓库地址：
-        <a href="https://github.com/v03413/BEpusdt" target="_blank" class="link"> https://github.com/v03413/BEpusdt </a>
+        Repository:
+        <a href="https://github.com/NYCTEAM/eaglepay" target="_blank" class="link">https://github.com/NYCTEAM/eaglepay</a>
       </p>
       <p style="margin-top: 12px">
-        API对接：
-        <a href="https://github.com/v03413/BEpusdt/blob/main/docs/api/api.md" target="_blank" class="link">
-          https://github.com/v03413/BEpusdt/blob/main/docs/api/api.md
+        API guide:
+        <a href="https://github.com/NYCTEAM/eaglepay/blob/main/docs/api/api.md" target="_blank" class="link">
+          https://github.com/NYCTEAM/eaglepay/blob/main/docs/api/api.md
         </a>
       </p>
     </div>

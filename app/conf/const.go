@@ -1,8 +1,8 @@
 package conf
 
 const (
-	Desc   = "Better Easy Payment USDT"
-	Github = "https://github.com/v03413/BEpusdt"
+	Desc   = "EAGLE SWAP LLC Payment Gateway"
+	Github = "https://github.com/NYCTEAM/eaglepay"
 )
 
 const Debug = false

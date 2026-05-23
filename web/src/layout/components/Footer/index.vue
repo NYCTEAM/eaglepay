@@ -2,16 +2,17 @@
   <a-layout-footer class="footer">
     <div class="footer_title">
       <div class="left-placeholder"></div>
-      <span @click="onBEpusdt" class="primary-copyright">{{ currentYear }} © BEpusdt. All rights reserved.</span>
-      <span class="secondary-info">Powered by SnowAdmin</span>
+      <span @click="openBrandSite" class="primary-copyright">{{ currentYear }} © EAGLE SWAP LLC. All rights reserved.</span>
+      <span class="secondary-info">Powered by EAGLE SWAP LLC</span>
     </div>
   </a-layout-footer>
 </template>
 
 <script setup lang="ts">
 const currentYear = ref(new Date().getFullYear());
-const onBEpusdt = () => {
-  window.open("https://github.com/v03413/BEpusdt", "_blank");
+
+const openBrandSite = () => {
+  window.open("https://github.com/NYCTEAM/eaglepay", "_blank");
 };
 </script>
 
@@ -52,8 +53,8 @@ const onBEpusdt = () => {
   .secondary-info {
     color: $color-text-4;
     font-size: 12px;
-    opacity: 0.6;
-    font-weight: 300;
+    opacity: 0.7;
+    font-weight: 400;
     flex: 1;
     text-align: right;
   }
