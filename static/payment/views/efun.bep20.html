@@ -72,12 +72,18 @@
                 <div class="address-text" id="walletAddress">{{.address}}</div>
                 <button class="copy-btn" onclick="copyAddress()" data-i18n="payment.copyAddress">Copy Address</button>
             </div>
+            <div class="address-section" style="margin-top: 10px;">
+                <div class="address-label">EFUN Contract Address (BEP20)</div>
+                <div class="address-text" id="efunContractAddress">0x6cBf442EaA9539Ff93ba2dd7726933bB7b66FeeD</div>
+                <button class="copy-btn" onclick="copyContractAddress()">Copy Contract</button>
+                <a class="copy-btn" href="https://pancakeswap.finance/swap?inputCurrency=0x6cBf442EaA9539Ff93ba2dd7726933bB7b66FeeD&outputCurrency=0x55d398326f99059fF775485246999027B3197955" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-left: 8px; text-decoration: none;">Buy EFUN</a>
+            </div>
         </div>
 
         <div class="instructions">
             <h4 data-i18n="payment.instructionsTitle">Transfer Instructions</h4>
             <ol>
-                <li data-i18n="[html]payment.instruction1">Use the <strong>BEP20 network</strong> only. Do not send BNB or assets from another chain.</li>
+                <li>Use the <strong>BEP20 network</strong> only. Transfer <strong>EFUN</strong> only. Do not send BNB or assets from another chain.</li>
                 <li data-i18n="payment.instruction2">Your order will be confirmed automatically after the transfer is detected.</li>
                 <li data-i18n="payment.instruction3">Send the exact amount shown on this page to avoid settlement delays.</li>
                 <li data-i18n="payment.instruction4">Contact support if you need help with this payment.</li>
@@ -94,6 +100,11 @@
     </div>
 
     <script>
+        function copyContractAddress() {
+            const contractAddress = document.getElementById('efunContractAddress').textContent.trim();
+            navigator.clipboard.writeText(contractAddress);
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
             Payment.init({
                 expire: "{{.expire}}",
